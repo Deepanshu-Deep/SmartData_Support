@@ -33,7 +33,17 @@ public class Main extends MemberFileConverter {
 	protected List< Member > getNonDuplicateMembers( List< Member > membersFromFile ) {
 
 		// TODO
-		return new ArrayList<>(new HashSet<>(membersFromFile));
+		List<Member> uniqueMembers = new ArrayList<>();
+
+		for (Member member : membersFromFile) {
+
+			if (!uniqueMembers.contains(member)) {
+
+				uniqueMembers.add(member);
+			}
+		}
+
+		return uniqueMembers;
 	}
 
 	@Override
